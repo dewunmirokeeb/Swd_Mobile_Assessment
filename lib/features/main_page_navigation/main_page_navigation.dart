@@ -21,8 +21,8 @@ class _MainPageNavigationScreenState extends State<MainPageNavigationScreen> {
   int currentIndex = 0;
   changeIndex(int index) {
     currentIndex = index;
-    pageController.jumpToPage(index);
     setState(() {});
+    pageController.jumpToPage(index);
   }
 
   @override
@@ -30,6 +30,8 @@ class _MainPageNavigationScreenState extends State<MainPageNavigationScreen> {
     return Scaffold(
       body: SafeArea(
         child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: pageController,
           children: const [
             HomeScreen(),
             ServicesScreen(),
@@ -39,6 +41,26 @@ class _MainPageNavigationScreenState extends State<MainPageNavigationScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: AppColors.blackColor,
+        child: Container(
+          width: 80,
+          height: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(40),
+            gradient: const LinearGradient(
+              colors: [
+                AppColors.orangeColor,
+                AppColors.lightOrangeColor,
+              ],
+            ),
+          ),
+          child: Center(
+            child: SvgPicture.asset(SvgIcon.chat),
+          ),
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         showSelectedLabels: true,
@@ -46,7 +68,7 @@ class _MainPageNavigationScreenState extends State<MainPageNavigationScreen> {
         selectedFontSize: 14,
         unselectedFontSize: 14,
         selectedItemColor: AppColors.whiteColor,
-        unselectedItemColor: AppColors.greyColor,
+        unselectedItemColor: AppColors.black3Color,
         onTap: (value) {
           changeIndex(value);
         },
@@ -70,7 +92,7 @@ List<BottomNavigationBarItem> bottomNavigationBarItems =
         child: SvgPicture.asset(
           selectedIconPath,
           colorFilter: const ColorFilter.mode(
-            AppColors.whiteColor,
+            AppColors.black3Color,
             BlendMode.srcIn,
           ),
           width: 24,
@@ -82,7 +104,7 @@ List<BottomNavigationBarItem> bottomNavigationBarItems =
           unselectedIconPath,
           width: 24,
           colorFilter: const ColorFilter.mode(
-            AppColors.greyColor,
+            AppColors.black3Color,
             BlendMode.srcIn,
           ),
         ),

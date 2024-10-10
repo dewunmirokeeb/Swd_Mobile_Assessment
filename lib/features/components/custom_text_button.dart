@@ -8,6 +8,7 @@ class CustomTextButton extends StatelessWidget {
       this.textDecoration,
       this.color,
       this.fontSize,
+      this.horizontalPadding,
       super.key});
 
   final Function() onPressed;
@@ -15,11 +16,12 @@ class CustomTextButton extends StatelessWidget {
   final TextDecoration? textDecoration;
   final Color? color;
   final double? fontSize;
+  final double? horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding ?? 15),
       child: TextButton(
         onPressed: onPressed,
         style: TextButton.styleFrom(
