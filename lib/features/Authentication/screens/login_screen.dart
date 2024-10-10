@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:swd_mobile_assessment/features/Authentication/screens/create_account_screen.dart';
 import 'package:swd_mobile_assessment/features/components/custom_button.dart';
 import 'package:swd_mobile_assessment/features/components/custom_text_button.dart';
 import 'package:swd_mobile_assessment/features/components/custom_text_field.dart';
@@ -75,7 +76,14 @@ class LoginScreen extends StatelessWidget {
                         fontSize: 14,
                       ),
                       mouseCursor: SystemMouseCursors.click,
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const CreateAccountScreen(),
+                            ),
+                          );
+                        },
                     ),
                   ],
                 ),

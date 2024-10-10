@@ -7,12 +7,14 @@ class CustomTextButton extends StatelessWidget {
       required this.buttonText,
       this.textDecoration,
       this.color,
+      this.fontSize,
       super.key});
 
   final Function() onPressed;
   final String buttonText;
   final TextDecoration? textDecoration;
   final Color? color;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class CustomTextButton extends StatelessWidget {
           style: TextStyle(
             color: color ?? AppColors.greyColor,
             decoration: textDecoration,
-            fontSize: 14,
+            fontSize: fontSize ?? 14,
             decorationColor: color ?? AppColors.greyColor,
           ),
         ),

@@ -6,11 +6,13 @@ class CustomTextField extends StatefulWidget {
     this.labelText,
     this.hintText,
     this.isPasswordField,
+    this.controller,
     super.key,
   });
   final String? labelText;
   final String? hintText;
   final bool? isPasswordField;
+  final TextEditingController? controller;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -41,6 +43,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           if (widget.labelText != null) const SizedBox(height: 5),
           TextField(
             obscureText: showpassword,
+            controller: widget.controller,
             cursorColor: AppColors.whiteColor,
             style: const TextStyle(color: Colors.white),
             decoration: InputDecoration(
