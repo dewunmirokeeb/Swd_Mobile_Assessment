@@ -109,37 +109,40 @@ class ActionCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Center(
-            child: Wrap(
-              spacing: 15,
-              runSpacing: 20,
-              children: [
-                ...SvgIcon.quickActionData.map(
-                  (e) => Container(
-                    width: 75,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: AppColors.black4Color,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          e["iconPath"],
-                        ),
-                        const SizedBox(height: 10),
-                        Text(
-                          e["title"],
-                          style: const TextStyle(
-                            color: AppColors.whiteColor,
-                          ),
-                        )
-                      ],
-                    ),
+          SizedBox(
+            height: 180,
+            child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: SvgIcon.quickActionData.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                mainAxisSpacing: 20,
+                crossAxisSpacing: 20,
+                childAspectRatio: .85,
+              ),
+              itemBuilder: (context, index) {
+                return Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: AppColors.black4Color,
                   ),
-                ),
-              ],
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        SvgIcon.quickActionData[index]["iconPath"],
+                      ),
+                      const SizedBox(height: 10),
+                      Text(
+                        SvgIcon.quickActionData[index]["title"],
+                        style: const TextStyle(
+                          color: AppColors.whiteColor,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ],
