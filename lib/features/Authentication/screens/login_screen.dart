@@ -4,6 +4,7 @@ import 'package:swd_mobile_assessment/features/Authentication/screens/create_acc
 import 'package:swd_mobile_assessment/features/components/custom_button.dart';
 import 'package:swd_mobile_assessment/features/components/custom_text_button.dart';
 import 'package:swd_mobile_assessment/features/components/custom_text_field.dart';
+import 'package:swd_mobile_assessment/features/main_page_navigation/main_page_navigation.dart';
 import 'package:swd_mobile_assessment/features/utils/app_colors.dart';
 import 'package:swd_mobile_assessment/features/utils/app_string.dart';
 
@@ -57,7 +58,15 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const MainPageNavigationScreen();
+                      },
+                    ),
+                  );
+                },
                 buttonText: "Sign in",
               ),
               const SizedBox(height: 20),

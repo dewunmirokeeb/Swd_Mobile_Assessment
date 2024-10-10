@@ -3,6 +3,7 @@ import 'package:swd_mobile_assessment/features/Authentication/widgets/authentica
 import 'package:swd_mobile_assessment/features/Authentication/widgets/page_indicator.dart';
 import 'package:swd_mobile_assessment/features/components/custom_button.dart';
 import 'package:swd_mobile_assessment/features/components/custom_otp_text_field.dart';
+import 'package:swd_mobile_assessment/features/main_page_navigation/main_page_navigation.dart';
 import 'package:swd_mobile_assessment/features/utils/app_colors.dart';
 
 class VerifyAccountScreen extends StatelessWidget {
@@ -56,12 +57,13 @@ class VerifyAccountScreen extends StatelessWidget {
             CustomButton(
               buttonText: "Verify email",
               onPressed: () {
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) =>
-                //         VerifyAccountScreen(emailAddress: emailController.text),
-                //   ),
-                // );
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const MainPageNavigationScreen();
+                    },
+                  ),
+                );
               },
             ),
             const SizedBox(height: 40),
