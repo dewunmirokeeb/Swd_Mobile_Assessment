@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:swd_mobile_assessment/features/Authentication/screens/verify_account_screen.dart';
 import 'package:swd_mobile_assessment/features/Authentication/widgets/authentication_page_appbar.dart';
+import 'package:swd_mobile_assessment/features/Authentication/widgets/page_indicator.dart';
 import 'package:swd_mobile_assessment/features/components/custom_button.dart';
 import 'package:swd_mobile_assessment/features/components/custom_text_field.dart';
+import 'package:swd_mobile_assessment/features/utils/app_colors.dart';
 
 class CreateAccountScreen extends StatelessWidget {
   const CreateAccountScreen({super.key});
@@ -15,6 +17,13 @@ class CreateAccountScreen extends StatelessWidget {
           children: [
             AUthPageAppBar(
               showAction: true,
+            ),
+            Text(
+              "Create an account",
+              style: TextStyle(
+                fontSize: 36,
+                color: AppColors.whiteColor,
+              ),
             ),
             Expanded(
               child: SignUpForm(),
@@ -89,9 +98,7 @@ class SignUpForm extends StatelessWidget {
             },
           ),
           const SizedBox(height: 20),
-          Row(
-            children: [],
-          ),
+          const PageIndicator(pageIndex: 0),
           const SizedBox(height: 40),
         ],
       ),
